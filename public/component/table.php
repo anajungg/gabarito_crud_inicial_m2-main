@@ -14,7 +14,7 @@
 
     <?php
     
-    $sqlUsuarios = "SELECT * FROM users";
+    $sqlUsuarios = "SELECT * FROM usuarios";
 
     $resultadoUsuarios = $conn -> query($sqlUsuarios);
 
@@ -22,10 +22,11 @@
         echo "<tr>
         
             <td>" . $linha["id"] . "</td>
-            <td>" . $linha["username"] . "</td>
-            <td>" . $linha["password"] . "</td>
+            <td>" . $linha["usuario"] . "</td>
+            <td>" . $linha["senha"] . "</td>
             <td> <a href='editar.php?id=". $linha["id"] ."'>Editar</td>
-            <td> <a href='excluir.php?id=". $linha["id"] ."'>Excluir</td>
+            <td> <a href='excluir.php?id=". $linha["id"] ."'
+             onclick='return confirm(\"Deseja realmente excluir este usuário?\")'>Excluir</td>
         
         </tr>";
     }

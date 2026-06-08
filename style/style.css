@@ -1,5 +1,8 @@
 header{
-    background-color: rgb(14, 14, 130);
+    background-color: rgb(231, 24, 24) !important;
     color: aliceblue;
     padding: 2px;
+}
+body{
+    background-color:antiquewhite !important;
 }

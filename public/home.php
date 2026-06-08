@@ -7,7 +7,7 @@
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $usuario = $_POST["usuario"];
         $senha = $_POST["senha"];
-        $sql = "INSERT INTO users (username, password) VALUES ('$usuario','$senha')";
+        $sql = "INSERT INTO usuarios (usuario, senha) VALUES ('$usuario','$senha')";
         if($conn -> query($sql) === TRUE){
             echo "<script>alert('Usuário Cadastrado com sucesso!')</script>";
         }else{
