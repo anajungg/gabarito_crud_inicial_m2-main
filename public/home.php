@@ -7,6 +7,20 @@
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $usuario = $_POST["usuario"];
         $senha = $_POST["senha"];
+        $confirmar = $_POST["confirmar_senha"];
+
+    if ($senha !== $confirmar) {
+        echo "<p style='color:red;'>As senhas não coincidem!</p>";
+        return;
+    }
+
+        $sqlVerifica = "SELECT id FROM usuarios WHERE usuario = '$usuario'";
+    $resultVerifica = $conn->query($sqlVerifica);
+
+    if ($resultVerifica->num_rows > 0) {
+    echo "<p style='color:red;'>Usuário já existe!</p>";
+    return;
+}
         $sql = "INSERT INTO usuarios (usuario, senha) VALUES ('$usuario','$senha')";
         if($conn -> query($sql) === TRUE){
             echo "<script>alert('Usuário Cadastrado com sucesso!')</script>";
@@ -40,6 +54,10 @@
         <br>
         <label for="senha">Senha:</label>
         <input type="password" name="senha">
+        <br>
+        <br>
+        <label>Confirmar Senha:</label>
+        <input type="password" name="confirmar_senha">
         <br>
         <br>
         <button type="submit">Cadastrar</button>

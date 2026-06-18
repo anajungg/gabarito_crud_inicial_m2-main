@@ -11,6 +11,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     WHERE usuario = '$usuario' 
     AND senha = '$senha'";
 
+if (empty($usuario) || empty($senha)) {
+    $erro = "Preencha todos os campos!";
+} else {
+
     $resultado = $conn -> query($sql);
 
     if($resultado -> num_rows > 0){
@@ -20,6 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }else{
         $erro = "Usuário ou senha inválidos.";
     }
+}
 }
 
 ?>
